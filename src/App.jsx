@@ -6,7 +6,7 @@ import microscopeImage from './assets/microscope.jpg';
 import blastFurnaceImage from './assets/blast-furnace.jpg';
 import phaseDiagramImage from './assets/phase-diagram.jpg';
 import TijaniBello from './assets/Tijani-Bello.jpg'
-import Azeez from './assets/Azeez.jpg'
+import Azeez from './assets/azeez.jpg'
 import Dami from './assets/Oluwadamilare.png'
 
 
