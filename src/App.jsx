@@ -60,18 +60,21 @@ const App = () => {
     <div className="app">
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="navbar-container">
-          <div className="logo">
-            <span className="logo-text">NAMMES</span>
-            <span className="logo-subtext" style={{ color: isScrolled ? 'var(--dark-color)' : 'var(--white)' }}>
-              Nigeria
-            </span>
+          <div className="logo-container">
+            <img style={{width: '50px', height: '50px'}} src="/logo.png" alt="" />
+            <div className="logo">
+              <span className="logo-text">NAMMES</span>
+              <span className="logo-subtext" style={{ color: isScrolled ? 'var(--dark-color)' : 'var(--white)' }}>
+                Nigeria
+              </span>
+            </div>
           </div>
           <ul className="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#leadership">Leadership</a></li>
             <li><a href="#events">Events</a></li>
-            <li><a href="#resources">Resources</a></li>
+            <li><a href="https://youtube.com/@midecaliengineer">Resources</a></li>
             <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -87,8 +90,8 @@ const App = () => {
             <p>National Association of Metallurgical and Materials Engineering Students</p>
             <div className="hero-buttons">
               <a href='https://nammesngcertificate.live' className="btn-primary">Join NAMMES</a>
-              <a href='https://nammesngcertificate.live' className="btn-secondary">Download Constitution</a>
-              <a href='https://nammesngcertificate.live' className="btn-tertiary">Upcoming Convention</a>
+              <a href='/nammes-constitution-and-senate-act.pdf' download={true} className="btn-secondary">Download Constitution</a>
+              <a href='#events' className="btn-tertiary">Upcoming Convention</a>
             </div>
           </div>
         </div>
@@ -215,15 +218,13 @@ const App = () => {
               </div>
               <h3>President</h3>
               <p>Azeez Fawaz Olawale</p>
-              <p>Federal University of Technology, Minna</p>
             </div>
             <div className="leader-card">
               <div className="leader-image">
                 <img src={TijaniBello} alt="Tijani Bello" />
               </div>
               <h3>Vice President</h3>
-              <p>Tijani-Bello</p>
-              <p>University of Lagos</p>
+              <p>Tijani-Bello Ghaffar</p>
             </div>
             <div className="leader-card">
               <div className="leader-image">
@@ -231,10 +232,8 @@ const App = () => {
               </div>
               <h3>Secretary General</h3>
               <p>Emmanuel, Peter Damilare</p>
-              <p>Obafemi Awolowo University</p>
             </div>
           </div>
-          <button className="btn-secondary">View Full Leadership</button>
         </div>
       </section>
 
@@ -285,14 +284,11 @@ const App = () => {
           <div className="contact-content">
             <div className="contact-info">
               <h3>Get in Touch</h3>
-              <p><strong>Email:</strong> info@nammesnigeria.org</p>
-              <p><strong>Phone:</strong> +234 812 345 6789</p>
+              <p><strong>Email:</strong> nammesnigeriaofficial@gmail.com</p>
               <p><strong>Address:</strong> Department of Metallurgical and Materials Engineering, University of Lagos, Akoka</p>
               <div className="social-links">
-                <a href="#" className="social-icon">f</a>
-                <a href="#" className="social-icon">in</a>
-                <a href="#" className="social-icon">t</a>
-                <a href="#" className="social-icon">ig</a>
+                <a href="https://x.com/nammesnigeriaHQ" className="social-icon">X</a>
+                <a href="https://instagram.com/nammes_nigeriahq" className="social-icon">ig</a>
               </div>
             </div>
             <div className="contact-form">
@@ -332,7 +328,7 @@ const App = () => {
                 <li><a href="#about">About</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#resources">Resources</a></li>
+                <li><a href="https://youtube.com/@midecaliengineer">Resources</a></li>
                 <li><a href="#membership">Membership</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
