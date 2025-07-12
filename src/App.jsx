@@ -1,0 +1,357 @@
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import heroImage from './assets/hero-image.jpg';
+import weldingImage from './assets/welding.jpg';
+import microscopeImage from './assets/microscope.jpg';
+import blastFurnaceImage from './assets/blast-furnace.jpg';
+import phaseDiagramImage from './assets/phase-diagram.jpg';
+import TijaniBello from './assets/Tijani-Bello.jpg'
+import Azeez from './assets/Azeez.jpg'
+import Dami from './assets/Oluwadamilare.png'
+
+
+const App = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [daysUntilConvention, setDaysUntilConvention] = useState(0);
+  
+  const heroImages = [
+    weldingImage,
+    microscopeImage,
+    blastFurnaceImage,
+    phaseDiagramImage
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate days until next convention (assuming it's October 15, 2024)
+  useEffect(() => {
+    const calculateDays = () => {
+      const today = new Date();
+      const conventionDate = new Date('2024-10-15');
+      const diffTime = conventionDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setDaysUntilConvention(diffDays > 0 ? diffDays : 0);
+    };
+    
+    calculateDays();
+    
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+    
+    return () => clearInterval(imageInterval);
+  }, []);
+
+  return (
+    <div className="app">
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-container">
+          <div className="logo">
+            <span className="logo-text">NAMMES</span>
+            <span className="logo-subtext" style={{ color: isScrolled ? 'var(--dark-color)' : 'var(--white)' }}>
+              Nigeria
+            </span>
+          </div>
+          <ul className="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="hero" style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}>
+        <div className="hero-overlay">
+          <div className="hero-content">
+            {/* Navigation */}
+            <h1>Materials... the bedrock of technological advancement</h1>
+            <p>National Association of Metallurgical and Materials Engineering Students</p>
+            <div className="hero-buttons">
+              <a href='https://nammesngcertificate.live' className="btn-primary">Join NAMMES</a>
+              <a href='https://nammesngcertificate.live' className="btn-secondary">Download Constitution</a>
+              <a href='https://nammesngcertificate.live' className="btn-tertiary">Upcoming Convention</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Welcome Section */}
+      <section id="about" className="welcome-section">
+        <div className="container">
+          <h2>Welcome to NAMMES Nigeria</h2>
+          <div className="welcome-content">
+            <div className="welcome-text">
+              <p>
+                It is with great pleasure that we welcome you to this digital home of innovation, 
+                representation, and academic excellence. NAMMES Nigeria is the unifying body for 
+                students studying Metallurgical and Materials Engineering across all affiliated 
+                institutions in Nigeria.
+              </p>
+              <p>
+                Guided by our motto — <em>"Materials… the bedrock of technological advancement"</em> — 
+                we are committed to promoting technological growth, professional development, 
+                and national relevance through our shared discipline.
+              </p>
+              <p>
+                This platform is more than a website; it is a <strong>hub for engagement</strong>, 
+                <strong>transparency</strong>, and <strong>connection</strong>. Here, members can access important 
+                documents such as our <strong>constitution</strong>, view updates from our <strong>National Executive 
+                Council and Senate</strong>, follow up on <strong>events and programs</strong>, and be part of shaping 
+                a more vibrant and inclusive engineering future.
+              </p>
+              <p className="motto">
+                <strong>CO-METALS… Materials for Service!</strong>
+              </p>
+            </div>
+            <div className="welcome-image">
+              <img src={heroImage} alt="Metallurgical Engineering Students" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="values-section">
+        <div className="container">
+          <h2>Our Core Values</h2>
+          <div className="values-grid">
+            <div className="value-card">
+              <div className="value-icon">R</div>
+              <h3>Representation</h3>
+              <p>Ensuring every member's voice is heard and represented at all levels</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">I</div>
+              <h3>Integrity</h3>
+              <p>Upholding the highest ethical standards in all our activities</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">T</div>
+              <h3>Transparency</h3>
+              <p>Open and accountable in all our operations and decision-making</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">E</div>
+              <h3>Efficiency</h3>
+              <p>Delivering quality services and programs with optimal resource use</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">P</div>
+              <h3>Probity</h3>
+              <p>Demonstrating honesty and decency in all financial matters</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">A</div>
+              <h3>Accountability</h3>
+              <p>Taking responsibility for our actions and decisions</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">E</div>
+              <h3>Excellence</h3>
+              <p>Striving for the highest standards in all our endeavors</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section id="events" className="events-section">
+        <div className="container">
+          <h2>Upcoming Events</h2>
+          <div className="event-highlight">
+            <div className="event-countdown">
+              <h3>Annual NAMMES Nigeria Convention</h3>
+              <div className="countdown-timer">
+                <div className="countdown-box">
+                  <span className="countdown-number">{daysUntilConvention}</span>
+                  <span className="countdown-label">Days</span>
+                </div>
+                <p>Until the big event!</p>
+              </div>
+              <button className="btn-primary">Register Now</button>
+            </div>
+            <div className="event-details">
+              <h4>Event Details</h4>
+              <p><strong>Date:</strong> October 15-19, 2024</p>
+              <p><strong>Location:</strong> Federal University of Technology, Akure</p>
+              <p><strong>Theme:</strong> "Sustainable Materials Development for National Growth"</p>
+              <p>
+                The Annual NAMMES Convention brings together students, academics, and industry 
+                professionals from across Nigeria to discuss the latest developments in 
+                metallurgical and materials engineering.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Preview */}
+      <section id="leadership" className="leadership-section">
+        <div className="container">
+          <h2>Our Leadership</h2>
+          <div className="leadership-grid">
+            <div className="leader-card">
+              <div className="leader-image">
+                <img src={Azeez} alt="Azeez" />
+              </div>
+              <h3>President</h3>
+              <p>Azeez Fawaz Olawale</p>
+              <p>Federal University of Technology, Minna</p>
+            </div>
+            <div className="leader-card">
+              <div className="leader-image">
+                <img src={TijaniBello} alt="Tijani Bello" />
+              </div>
+              <h3>Vice President</h3>
+              <p>Tijani-Bello</p>
+              <p>University of Lagos</p>
+            </div>
+            <div className="leader-card">
+              <div className="leader-image">
+                <img src={Dami} alt="Oluwadamilare" />
+              </div>
+              <h3>Secretary General</h3>
+              <p>Emmanuel, Peter Damilare</p>
+              <p>Obafemi Awolowo University</p>
+            </div>
+          </div>
+          <button className="btn-secondary">View Full Leadership</button>
+        </div>
+      </section>
+
+      {/* Membership CTA */}
+      <section id="membership" className="membership-cta">
+        <div className="container">
+          <h2>Become a NAMMES Member Today</h2>
+          <p>
+            Join the largest network of Metallurgical and Materials Engineering students in Nigeria. 
+            Enjoy access to exclusive resources, networking opportunities, and professional development programs.
+          </p>
+          <div className="membership-options">
+            <div className="membership-card">
+              <h3>Student Member</h3>
+              <p>For current undergraduate students</p>
+              <a href="https://nammesngcertificate.live" target='__blank' className="btn-primary">Join Now</a>
+            </div>
+            <div className="membership-card">
+              <h3>Alumni Member</h3>
+              <p>For graduates of Metallurgical/Materials Engineering</p>
+              <a href="https://nammesngcertificate.live" target='__blank' className="btn-primary">Join Now</a>
+            </div>
+            <div className="membership-card">
+              <h3>Institutional Member</h3>
+              <p>For university chapters and departments</p>
+              <a href="https://nammesngcertificate.live" target='__blank' className="btn-primary">Join Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* News Ticker */}
+      <section className="news-ticker">
+        <div className="container">
+          <h3>Latest Updates</h3>
+          <div className="ticker-content">
+            <span>• NAMMES wins 1st place at National Engineering Competition •</span>
+            <span>• Senate passes new budget for 2024 academic year •</span>
+            <span>• Registration open for Materials Characterization Workshop •</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="contact-section">
+        <div className="container">
+          <h2>Contact Us</h2>
+          <div className="contact-content">
+            <div className="contact-info">
+              <h3>Get in Touch</h3>
+              <p><strong>Email:</strong> info@nammesnigeria.org</p>
+              <p><strong>Phone:</strong> +234 812 345 6789</p>
+              <p><strong>Address:</strong> Department of Metallurgical and Materials Engineering, University of Lagos, Akoka</p>
+              <div className="social-links">
+                <a href="#" className="social-icon">f</a>
+                <a href="#" className="social-icon">in</a>
+                <a href="#" className="social-icon">t</a>
+                <a href="#" className="social-icon">ig</a>
+              </div>
+            </div>
+            <div className="contact-form">
+              <h3>Send us a Message</h3>
+              <form>
+                <div className="form-group">
+                  <input type="text" placeholder="Your Name" />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="Your Email" />
+                </div>
+                <div className="form-group">
+                  <textarea placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" className="btn-primary">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-logo">
+              <div className="logo">
+                <span className="logo-text">NAMMES</span>
+                <span className="logo-subtext">Nigeria</span>
+              </div>
+              <p>Materials... the bedrock of technological advancement</p>
+            </div>
+            <div className="footer-links">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div className="footer-newsletter">
+              <h4>Subscribe to our Newsletter</h4>
+              <form>
+                <input type="email" placeholder="Your Email" />
+                <button type="submit" className="btn-primary">Subscribe</button>
+              </form>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>&copy; {new Date().getFullYear()} NAMMES Nigeria. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
