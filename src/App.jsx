@@ -74,7 +74,8 @@ const App = () => {
             <li><a href="#about">About</a></li>
             <li><a href="#leadership">Leadership</a></li>
             <li><a href="#events">Events</a></li>
-            <li><a href="https://youtube.com/@midecaliengineer">Resources</a></li>
+            <li><a href="/Industrial-Training-data.xlsx" download={true}>SIWES Placement Directory</a></li>
+            <li><a href="https://youtube.com/@midecaliengineer">Tutorials</a></li>
             <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -214,17 +215,17 @@ const App = () => {
           <div className="leadership-grid">
             <div className="leader-card">
               <div className="leader-image">
-                <img src={Azeez} alt="Azeez" />
+                <img src={TijaniBello} alt="Tijani Bello" />
               </div>
               <h3>President</h3>
-              <p>Azeez Fawaz Olawale</p>
+              <p>Tijani-Bello Ghaffar</p>
             </div>
             <div className="leader-card">
               <div className="leader-image">
-                <img src={TijaniBello} alt="Tijani Bello" />
+                <img src={Azeez} alt="Azeez" />
               </div>
               <h3>Vice President</h3>
-              <p>Tijani-Bello Ghaffar</p>
+              <p>Azeez Fawaz Olawale</p>
             </div>
             <div className="leader-card">
               <div className="leader-image">
