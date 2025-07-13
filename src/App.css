@@ -440,6 +440,140 @@ a:hover {
   color: var(--primary-dark);
 }
 
+/* Internship Directory Section */
+.internship-section {
+  padding: 6rem 0;
+  background-color: var(--white);
+  position: relative;
+}
+
+.directory-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.directory-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.directory-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.directory-card h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.directory-card p {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.directory-card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Testimonial */
+.testimonial {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 3rem;
+  border-radius: 15px;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.quote-icon {
+  font-size: 4rem;
+  line-height: 1;
+  opacity: 0.2;
+  margin-bottom: -2rem;
+}
+
+.testimonial blockquote {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--white);
+  background-image: url('./assets/testimonial-avatar.jpg');
+  background-size: cover;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-info strong {
+  font-weight: 600;
+}
+
+.author-info span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .directory-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial {
+    padding: 2rem;
+  }
+  
+  .testimonial blockquote {
+    font-size: 1.1rem;
+  }
+}
+
 /* Leadership Section */
 .leadership-section {
   padding: 5rem 0;

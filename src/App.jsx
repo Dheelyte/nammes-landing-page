@@ -74,8 +74,6 @@ const App = () => {
             <li><a href="#about">About</a></li>
             <li><a href="#leadership">Leadership</a></li>
             <li><a href="#events">Events</a></li>
-            <li><a href="/Industrial-Training-data.xlsx" download={true}>SIWES Placement Directory</a></li>
-            <li><a href="https://youtube.com/@midecaliengineer">Tutorials</a></li>
             <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -208,6 +206,71 @@ const App = () => {
         </div>
       </section>
 
+      {/* Internship/SIWES Directory Section */}
+      <section id="internships" className="internship-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Internship & SIWES Placement</h2>
+            <p style={{textAlign: 'center'}}>Connect with industry partners for your mandatory training programs</p>
+          </div>
+          
+          <div className="directory-cards">
+            {/* Industry Partners Card */}
+            <div className="directory-card">
+              <div className="card-icon">🏭</div>
+              <h3>Industry Partners</h3>
+              <p>Access our network of 50+ metallurgical and materials engineering companies offering internships</p>
+            </div>
+            
+            {/* SIWES Resources Card */}
+            <div className="directory-card">
+              <div className="card-icon">📚</div>
+              <h3>SIWES Resources</h3>
+              <p>Download logbooks, guidelines and get approved for your industrial training</p>
+            </div>
+            
+            {/* Alumni Network Card */}
+            <div className="directory-card">
+              <div className="card-icon">👥</div>
+              <h3>Alumni Network</h3>
+              <p>Connect with NAMMES alumni who can help with placements and mentorship</p>
+            </div>
+          </div>
+
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <a
+              href='/nammes-constitution-and-senate-act.pdf'
+              download={true}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-secondary"
+              style={{
+                padding: '10px 15px',
+                borderRadius: '10px',
+                textAlign: 'center'
+              }}
+            >
+              Browse Companies
+            </a>
+          </div>
+          
+          <div className="testimonial">
+            <div className="quote-icon">❝</div>
+            <blockquote>
+              "Through NAMMES' industry connections, I secured my SIWES at Naval Dockyard. 
+              The experience shaped my career path in metallurgical engineering."
+            </blockquote>
+            <div className="testimonial-author">
+              <div className="author-avatar"></div>
+              <div className="author-info">
+                <strong>Tijani-Bello Ghaffar</strong>
+                <span>Metallurgical Engineering, Unilag</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Leadership Preview */}
       <section id="leadership" className="leadership-section">
         <div className="container">
@@ -285,12 +348,14 @@ const App = () => {
           <div className="contact-content">
             <div className="contact-info">
               <h3>Get in Touch</h3>
-              <p><strong>Email:</strong> nammesnigeriaofficial@gmail.com</p>
+              <p><strong>Email:</strong> nammesnigeriaofficial@gmail.com, nammesng.senate@gmail.com</p>
+              <p style={{display: 'flex', gap: '10px'}}>
+                <strong>Social Media: </strong>
+                <a href="https://www.linkedin.com/groups/10064536">LinkedIn</a>
+                <a href="https://x.com/nammesnigeriaHQ">X/Twitter</a>
+                <a href="https://instagram.com/nammes_nigeriahq">Instagram</a>
+              </p>
               <p><strong>Address:</strong> Department of Metallurgical and Materials Engineering, University of Lagos, Akoka</p>
-              <div className="social-links">
-                <a href="https://x.com/nammesnigeriaHQ" className="social-icon">X</a>
-                <a href="https://instagram.com/nammes_nigeriahq" className="social-icon">ig</a>
-              </div>
             </div>
             <div className="contact-form">
               <h3>Send us a Message</h3>
@@ -329,6 +394,7 @@ const App = () => {
                 <li><a href="#about">About</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#events">Events</a></li>
+                <li><a href="/Industrial-Training-data.xlsx" download={true}>SIWES Placement Directory</a></li>
                 <li><a href="https://youtube.com/@midecaliengineer">Resources</a></li>
                 <li><a href="#membership">Membership</a></li>
                 <li><a href="#contact">Contact</a></li>
