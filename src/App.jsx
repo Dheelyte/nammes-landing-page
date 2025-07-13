@@ -75,6 +75,7 @@ const App = () => {
             <li><a href="#leadership">Leadership</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#membership">Membership</a></li>
+            <li><a href="https://youtube.com/@midecaliengineer">Tutorials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
