@@ -239,7 +239,7 @@ const App = () => {
 
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <a
-              href='/nammes-constitution-and-senate-act.pdf'
+              href='/Industrial-Training-data.xlsx.pdf'
               download={true}
               target="_blank" 
               rel="noopener noreferrer"
