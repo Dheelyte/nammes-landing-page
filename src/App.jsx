@@ -8,12 +8,14 @@ import phaseDiagramImage from './assets/phase-diagram.jpg';
 import TijaniBello from './assets/Tijani-Bello.jpg'
 import Azeez from './assets/azeez.jpg'
 import Dami from './assets/Oluwadamilare.png'
+import members from './members.json'
 
 
 const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [daysUntilConvention, setDaysUntilConvention] = useState(0);
+  const [seeMore, setSeeMore] = useState(false)
   
   const heroImages = [
     weldingImage,
@@ -298,7 +300,34 @@ const App = () => {
               <h3>Secretary General</h3>
               <p>Emmanuel, Peter Damilare</p>
             </div>
+
           </div>
+          {!seeMore && (<div style={{display: 'flex', justifyContent: 'center'}}>
+            <button
+              onClick={()=>{setSeeMore(true)}}
+              className="btn-secondary"
+              style={{
+                padding: '10px 25px',
+                borderRadius: '10px',
+                textAlign: 'center'
+              }}
+            >
+              See more
+            </button>
+          </div>)}
+          { seeMore && (
+            <div className="leadership-grid">
+            {members.map((member) => (
+              <div className="leader-card">
+                <div className="leader-image">
+                  <img src={member.image} alt={member.name} />
+                </div>
+                <h3>{member.name}</h3>
+                <p>{member.post}</p>
+              </div>
+            ))}
+          </div>
+          )}
         </div>
       </section>
 
@@ -352,7 +381,7 @@ const App = () => {
               <p><strong>Email:</strong> nammesnigeriaofficial@gmail.com, nammesng.senate@gmail.com</p>
               <p style={{display: 'flex', gap: '10px'}}>
                 <strong>Social Media: </strong>
-                <a href="https://www.linkedin.com/groups/10064536">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/nammesnigeria/">LinkedIn</a>
                 <a href="https://x.com/nammesnigeriaHQ">X/Twitter</a>
                 <a href="https://instagram.com/nammes_nigeriahq">Instagram</a>
               </p>
