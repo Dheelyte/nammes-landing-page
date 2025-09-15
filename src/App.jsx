@@ -8,7 +8,7 @@ import phaseDiagramImage from './assets/phase-diagram.jpg';
 import websiteLaunch from './assets/updates/news-website-launch.jpg';
 import btf2 from './assets/updates/news-btf-2.0.jpg';
 import competitionImage from './assets/updates/3m-intl-conference.jpg';
-import nseSponsorship from './assets/updates/Sponsorship.jpg';
+import nseSponsorship from './assets/updates/sponsorship.jpg';
 import btf1 from './assets/updates/news-btf-1.0.jpg';
 import siwesImage from './assets/Tijani-Bello.jpg';
 import TijaniBello from './assets/Tijani-Bello.jpg'
