@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import heroImage from './assets/hero-image.jpg';
 import weldingImage from './assets/welding.jpg';
 import microscopeImage from './assets/microscope.jpg';
 import blastFurnaceImage from './assets/blast-furnace.jpg';
 import phaseDiagramImage from './assets/phase-diagram.jpg';
+import websiteLaunch from './assets/updates/news-website-launch.jpg';
+import btf2 from './assets/updates/news-btf-2.0.jpg';
+import competitionImage from './assets/updates/3m-intl-conference.jpg';
+import nseSponsorship from './assets/updates/Sponsorship.jpg';
+import btf1 from './assets/updates/news-btf-1.0.jpg';
+import siwesImage from './assets/Tijani-Bello.jpg';
 import TijaniBello from './assets/Tijani-Bello.jpg'
 import Azeez from './assets/azeez.jpg'
 import Dami from './assets/Oluwadamilare.png'
@@ -23,6 +29,32 @@ const App = () => {
     blastFurnaceImage,
     phaseDiagramImage
   ];
+
+
+// Inside your component
+const newsScrollRef = useRef(null);
+
+const scrollNews = (direction) => {
+  if (newsScrollRef.current) {
+    const scrollAmount = 400; // Adjust this value as needed
+    const currentScroll = newsScrollRef.current.scrollLeft;
+    
+    if (direction === 'right') {
+      newsScrollRef.current.scrollTo({
+        left: currentScroll + scrollAmount,
+        behavior: 'smooth'
+      });
+    } else {
+      newsScrollRef.current.scrollTo({
+        left: currentScroll - scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  }
+};
+
+// Add the ref to the news scroll wrapper
+<div className="news-scroll-wrapper" ref={newsScrollRef}></div>
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,6 +165,143 @@ const App = () => {
           </div>
         </div>
       </section>
+
+      {/* News & Resources Section */}
+<section id="news-resources" className="news-resources-section">
+  <div className="container">
+    <div className="section-header">
+      <h2>News & Resources</h2>
+      <p>Stay informed with the latest announcements and access important documents</p>
+    </div>
+
+    {/* News Section with Horizontal Scroll */}
+    <div className="news-section">
+      <div className="news-header">
+        <h3>Latest News & Announcements</h3>
+        <div className="scroll-indicators">
+          <button className="scroll-btn scroll-left" onClick={() => scrollNews('left')}>
+            ←
+          </button>
+          <button className="scroll-btn scroll-right" onClick={() => scrollNews('right')}>
+            →
+          </button>
+        </div>
+      </div>
+      
+      <div className="news-scroll-container">
+        <div className="news-scroll-wrapper" ref={newsScrollRef}>
+          {[
+            {
+              id: 1,
+              title: "OFFICIAL NOTICE OF WEBSITE LAUNCH",
+              date: "9 August, 2025",
+              excerpt: "We are delighted to announce the official launch of the NAMMES Nigeria Website. This new platform marks a significant step in modernizing how we serve you — smarter, faster, and more secure.",
+              category: "Innovation",
+              urgent: true,
+              image: websiteLaunch,
+              readTime: "2 min read"
+            },
+            {
+              id: 2,
+              title: "BEYOND THE FURNACE 2.0",
+              date: "25 September, 2025",
+              excerpt: "The September Edition of NAMMES Monthly Webinar Series is here! Speaker: Prof. Lawrence Opeyemi Osoba (Aerospace Materials & Welding)",
+              category: "Event",
+              image: btf2,
+              readTime: "3 min read"
+            },
+            {
+              id: 3,
+              title: "3M Internation Conference Competition Winners Announced",
+              date: "February 28, 2024",
+              excerpt: "Congratulations to the winners of the 2025 3M Internation Conference.",
+              category: "Achievement",
+              image: competitionImage,
+              readTime: "4 min read"
+            },
+            {
+              id: 4,
+              title: "Sponsorship Opportunity - Free NSE Registration for 110 MME Students",
+              date: "1 April, 2025",
+              excerpt: "MideCali Engineer is pleased to sponsor the registration of 110 MME students under NSE.",
+              category: "Announcement",
+              image: nseSponsorship,
+              readTime: "2 min read"
+            },
+            {
+              id: 5,
+              title: "20 Membership Certificates Sponsored",
+              date: "1 August, 2025",
+              excerpt: "20 individuals membership certificates were sponsored and an individual went home with 30,000 Naira cash during the webinar 1.0",
+              category: "Achievement",
+              image: btf1,
+              readTime: "3 min read"
+            },
+            {
+              id: 6,
+              title: "SIWES Placement Resources Now Live",
+              date: "9 August, 2025",
+              excerpt: "New online resources for industrial training placements is now available for all members.",
+              category: "Update",
+              image: microscopeImage,
+              readTime: "2 min read"
+            }
+          ].map(news => (
+            <div key={news.id} className={`news-card ${news.urgent ? 'urgent' : ''}`}>
+              {news.urgent && <div className="urgent-badge">URGENT</div>}
+              
+              <div className="news-image">
+                <img src={news.image} alt={news.title} />
+                <div className="news-category">{news.category}</div>
+              </div>
+              
+              <div className="news-content">
+                <h4>{news.title}</h4>
+                <p>{news.excerpt}</p>
+                
+                <div className="news-meta">
+                  <span className="news-readtime">{news.date}</span>
+                </div>
+                
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Documents Section */}
+    <div className="documents-section">
+      <h3>Important Documents</h3>
+      <div className="documents-grid">
+
+
+
+        <div className="document-category">
+          <div className="document-list">
+            {[
+              { name: "Webinar Slides: Beyond the Furnace 1.0", format: "PDF", href: "Beyond_furnace_webinar_01.pdf", size: "868KB"},
+              { name: "NAMMES PROFILE", format: "PNG", href: "NAMMES Profile.png", size: "1.1MB"},
+              { name: "NAMMES REFERENCE LIST", format: "PNG", href: "NAMMES REFERENCE LIST.png", size: "1.2MB"},
+              { name: "NAMMES CHAPTERS 2025", format: "PNG", href: "NAMMES CHAPTERS 2025.png", size: "1.1MB"}
+            ].map((doc, index) => (
+              <div key={index} className="document-item">
+                <div className="doc-icon">📁</div>
+                <div className="doc-info">
+                  <h5>{doc.name}</h5>
+                  <span>{doc.format} • {doc.size}</span>
+                </div>
+                <a href={doc.href} className="download-btn" download={true}>
+                  Download
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Values Section */}
       <section className="values-section">
